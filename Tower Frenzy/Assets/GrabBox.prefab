@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4105204113488757758}
   - component: {fileID: -5489097984525441648}
   - component: {fileID: -6249984085895223062}
-  - component: {fileID: 4329392297677693021}
   m_Layer: 6
   m_Name: GrabBox
   m_TagString: Box
@@ -132,15 +131,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4329392297677693021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520386106172457846}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98362cd0f863b434085fb6210fcbbed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

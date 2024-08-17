@@ -18,9 +18,10 @@ public class Walls : MonoBehaviour
             {
                 Debug.Log("Please");
                 int index = boxes.IndexOf(boxes[i]);
+                Destroy(boxes[i]);
                 boxes.RemoveAt(index);
                 floats.RemoveAt(index);
-                Destroy(boxes[i]);
+
             }
         }
     }
@@ -40,4 +41,12 @@ public class Walls : MonoBehaviour
             boxes.RemoveAt(index);
             floats.RemoveAt(index);
     }
+
+    public void RemoveObject(GameObject _object)
+    {
+        int index = boxes.IndexOf(_object.gameObject);
+        boxes.RemoveAt(index);
+        floats.RemoveAt(index);
+    }
 }
+

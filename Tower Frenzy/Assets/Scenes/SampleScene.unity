@@ -290,6 +290,7 @@ MonoBehaviour:
   grabPoint: {fileID: 524828606}
   rayPoint: {fileID: 1427838401}
   rayDistance: 5
+  Wall: {fileID: 0}
 --- !u!61 &89965601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -692,7 +693,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2601994689340108240, guid: 3dfdc23c360766741877bf42468db6ad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3dfdc23c360766741877bf42468db6ad, type: 3}
 --- !u!1001 &1296932276
 PrefabInstance:
@@ -1063,6 +1065,7 @@ MonoBehaviour:
   grabPoint: {fileID: 20311946}
   rayPoint: {fileID: 826242227}
   rayDistance: 5
+  Wall: {fileID: 0}
 --- !u!61 &1772240855
 BoxCollider2D:
   m_ObjectHideFlags: 0

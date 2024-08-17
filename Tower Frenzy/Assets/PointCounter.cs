@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 public class PointCounter : MonoBehaviour
 {
-    private int points;
+
+    public int points;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -13,17 +15,19 @@ public class PointCounter : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Cube")
+        if (collision.gameObject.CompareTag("Box"))
         {
             points++;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            points--;
         }
     }
 }

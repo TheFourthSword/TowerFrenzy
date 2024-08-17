@@ -8,6 +8,7 @@ public class GrabObjectsTwo : MonoBehaviour
     public Transform grabPoint;
     public Transform rayPoint;
     public float rayDistance;
+    public Walls Wall;
 
     private GameObject grabbedObject2;
     private int layerIndex;
@@ -32,6 +33,7 @@ public class GrabObjectsTwo : MonoBehaviour
             grabbedObject2.transform.SetParent(null);
             //grabbedObject2.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             grabbedObject2 = null;
+           
 
         }
 
@@ -45,6 +47,7 @@ public class GrabObjectsTwo : MonoBehaviour
                 grabbedObject2.GetComponent<BoxCollider2D>().enabled = false;
                 grabbedObject2.transform.position = grabPoint.position;
                 grabbedObject2.transform.SetParent(transform);
+                Wall.RemoveObject(grabbedObject2);
             }
 
            

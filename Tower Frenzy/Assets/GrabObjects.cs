@@ -8,6 +8,7 @@ public class GrabObjects : MonoBehaviour
     public Transform grabPoint;
     public Transform rayPoint;
     public float rayDistance;
+    public Walls Wall;
 
     private GameObject grabbedObject;
     private int layerIndex;
@@ -34,6 +35,7 @@ public class GrabObjects : MonoBehaviour
                 grabbedObject.GetComponent<BoxCollider2D>().enabled = true;
                 grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.SetParent(transform);
+                Wall.RemoveObject(grabbedObject);
             }
 
             else if (Input.GetKeyDown(KeyCode.Space))

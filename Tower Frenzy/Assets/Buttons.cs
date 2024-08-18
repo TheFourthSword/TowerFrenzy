@@ -26,4 +26,9 @@ public class Buttons : MonoBehaviour
     {
         TutorialPanel.gameObject.SetActive(false);
     }
+
+    public void ReturnButton()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
 }

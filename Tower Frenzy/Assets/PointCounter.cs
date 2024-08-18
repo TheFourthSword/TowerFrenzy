@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PointCounter : MonoBehaviour
 {
 
     public int points;
- 
+    
 
     // Start is called before the first frame update
     void Start()
+    {
+        
+    }
+
+    private void Update()
     {
         
     }

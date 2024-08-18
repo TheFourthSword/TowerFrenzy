@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Walls : MonoBehaviour
 {
+
+    //deze code krijgt een specifiek bedankje aan Emily van der Schaaf, die samen met mij drie uur naar het probleem heeft gestaard in hoop tot oplossing
     public List<GameObject> boxes = new List<GameObject>();
     public List<float> floats = new List<float>();
 
@@ -29,6 +31,12 @@ public class Walls : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Box"))
+        {
+            boxes.Add(collision.gameObject);
+            floats.Add(0);
+        }
+
+        if (collision.gameObject.CompareTag("BoxSpecial"))
         {
             boxes.Add(collision.gameObject);
             floats.Add(0);

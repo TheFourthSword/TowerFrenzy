@@ -27,6 +27,10 @@ public class PointCounter : MonoBehaviour
         {
             points++;
         }
+        if (collision.gameObject.CompareTag("BoxSpecial"))
+        {
+            points += 2;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -35,5 +39,10 @@ public class PointCounter : MonoBehaviour
         {
             points--;
         }
+        if (collision.gameObject.CompareTag("BoxSpecial"))
+        {
+            points -= 2;
+        }
     }
+
 }

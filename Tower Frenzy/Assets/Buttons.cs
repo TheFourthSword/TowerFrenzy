@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    new public GameObject TutorialPanel;
+    //new public GameObject TutorialPanel;
     public void StartButton()
     {
+        PlayerMovement.playing = true;
+        PlayerTwoMovement.playing = true;
+        BoxSpawner.playing = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -19,12 +22,12 @@ public class Buttons : MonoBehaviour
 
     public void TutorialButton()
     {
-        TutorialPanel.gameObject.SetActive(true);
+       // TutorialPanel.gameObject.SetActive(true);
     }
 
     public void BackButton()
     {
-        TutorialPanel.gameObject.SetActive(false);
+       // TutorialPanel.gameObject.SetActive(false);
     }
 
     public void ReturnButton()

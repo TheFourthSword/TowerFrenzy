@@ -13,6 +13,11 @@ public class Timer : MonoBehaviour
     public Text timeText;
    //public PlayerMovement PlayerMovement;
     public float currentTime;
+    public PointDisplay counter1;
+    public PointDisplayTwo counter2;
+    new public GameObject OneWins;
+    new public GameObject TwoWins;
+    new public GameObject Tie;
 
 
     private void Start()
@@ -49,7 +54,31 @@ public class Timer : MonoBehaviour
         }
         if (timerIsRunning == false)
         {
-            SceneManager.LoadScene("LastScene");
+            StartCoroutine(WhoWon());
+            //SceneManager.LoadScene("LastScene");
         }
+    }
+
+    IEnumerator WhoWon()
+    {
+        PlayerMovement.playing = false;
+        PlayerTwoMovement.playing = false;
+        BoxSpawner.playing = false;
+
+        if (counter1.count < counter2.count)
+        {
+            OneWins.gameObject.SetActive(true);
+        }
+        
+        else if (counter1.count > counter2.count)
+        {
+            TwoWins.gameObject.SetActive(true);
+        }
+
+        else if (counter1.count == counter2.count)
+        {
+            Tie.gameObject.SetActive(true);
+        }
+        yield return null;
     }
 }

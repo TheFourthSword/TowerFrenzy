@@ -8,6 +8,8 @@ TagManager:
   - Walls
   - Dozen
   - Box
+  - BoxSpecial
+  - nyoom
   layers:
   - Default
   - TransparentFX

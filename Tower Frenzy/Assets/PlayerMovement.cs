@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     bool isHolding = false;
     bool canGrab;
 
+    public static bool playing = true;
+
     
 
     // Start is called before the first frame update
@@ -22,7 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
+        if (playing)
+            {
+            HandleInput();
+        }
+        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +38,21 @@ public class PlayerMovement : MonoBehaviour
         {
 
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "nyoom")
+        {
+            SpeedBoost();
+        }
+    }
+
+    IEnumerator SpeedBoost()
+    {
+        moveSpeed += 30;
+        yield return new WaitForSeconds(5);
+        moveSpeed -= 30;
     }
 
     void HandleInput()

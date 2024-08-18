@@ -7,6 +7,8 @@ public class PlayerTwoMovement : MonoBehaviour
     public float moveSpeed;
     Rigidbody2D rb;
 
+    public static bool playing = true;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -19,7 +21,25 @@ public class PlayerTwoMovement : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
+        if (playing)
+        {
+            HandleInput();
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "nyoom")
+        {
+            SpeedBoost();
+        }
+    }
+    IEnumerator SpeedBoost()
+    {
+        moveSpeed += 30;
+        yield return new WaitForSeconds(5);
+        moveSpeed -= 30;
     }
 
     void HandleInput()

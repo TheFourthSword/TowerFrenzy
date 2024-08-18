@@ -8,9 +8,15 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] float secondSpawn = 0.5f;
     [SerializeField] float minTras;
     [SerializeField] float maxTras;
+
+    public static bool playing = true;
     void Start()
     {
-        StartCoroutine(BoxSpawned()); 
+        if (playing)
+        {
+            StartCoroutine(BoxSpawned());
+        }
+         
     }
 
     IEnumerator BoxSpawned()
@@ -22,6 +28,11 @@ public class BoxSpawner : MonoBehaviour
             GameObject gameObject = Instantiate(boxPrefab[Random.Range(0, boxPrefab.Length)],
                 position, Quaternion.identity);
             yield return new WaitForSeconds(secondSpawn);
+
+            if (!playing)
+            {
+                break;
+            }
            
         }
     }

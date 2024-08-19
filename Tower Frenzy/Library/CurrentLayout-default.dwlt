@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Hierarchy
   m_RootView: {fileID: 3}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 877, y: 492}
   m_MaxSize: {x: 16002, y: 14042}
   vertical: 0
-  controlID: 120
+  controlID: 86
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 602, y: 492}
   m_MaxSize: {x: 12002, y: 14042}
   vertical: 1
-  controlID: 121
+  controlID: 87
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_MinSize: {x: 602, y: 221}
   m_MaxSize: {x: 12002, y: 4021}
   vertical: 0
-  controlID: 122
+  controlID: 88
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -426,7 +426,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: fc8affff5e91ffff1492ffff7e92ffff0a95ffff8695ffffa49affffd2e9ffff8aecfffff8eeffffb8f3ffff4afaffff78faffff7afaffff64fbffff84430000924300009e430000e4430000786f00003e730000
+      m_ExpandedIDs: 4254ffff4655ffffaa56ffffb85dffff8a5effff4a60ffff4a6afffff26cffff6a70ffff7c70ffffc27dffff567effff9c8dffff608effff8498ffff08a8ffff30a8ffffd2a8ffffaea9ffffd6a9ffff88aaffff00b5ffff7eb7ffff00baffff12baffffa8ceffff3cdaffffaadefffff4e3ffff5eedffff88edffff9aedffff42eeffff9ef3ffff2efaffff64fbffffea4300007645000096450000c4640000d8640000246c0000406c0000626c0000b66c0000dc6c0000806f0000b06f0000fa6f00001a7000002270000034700000fe7000002e7100006c71000078710000a0710000b2710000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -486,9 +486,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.02, y: 4.23, z: 0}
+    m_Target: {x: 933.9502, y: 834.573, z: -284.0523}
     speed: 2
-    m_Value: {x: -0.019968577, y: 4.230035, z: -0.000007742547}
+    m_Value: {x: 933.9502, y: 834.573, z: -284.0523}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -539,9 +539,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 935.7728
     speed: 2
-    m_Value: 10.000057
+    m_Value: 935.7728
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -654,22 +654,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lilit\OneDrive\Documents\GitHub\TowerFrenzy\Tower Frenzy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 14710000
-    m_LastClickedID: 28948
-    m_ExpandedIDs: 000000005243000000ca9a3b
+    m_SelectedIDs: b6430000
+    m_LastClickedID: 17334
+    m_ExpandedIDs: 00000000b043000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -697,7 +697,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000052430000
+    m_ExpandedIDs: 00000000b0430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

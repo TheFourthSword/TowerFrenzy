@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    //new public GameObject TutorialPanel;
+    new public GameObject CurrentPanel;
+    new public GameObject NextPanel;
     public void StartButton()
     {
         PlayerMovement.playing = true;
@@ -33,5 +34,11 @@ public class Buttons : MonoBehaviour
     public void ReturnButton()
     {
         SceneManager.LoadScene("StartScreen");
+    }
+
+    public void PanelButton()
+    {
+        CurrentPanel.gameObject.SetActive(false);
+        NextPanel.gameObject.SetActive(true);
     }
 }

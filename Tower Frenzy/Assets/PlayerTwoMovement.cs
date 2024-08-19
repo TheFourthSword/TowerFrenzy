@@ -23,6 +23,7 @@ public class PlayerTwoMovement : MonoBehaviour
     {
         if (playing)
         {
+            Debug.Log("paniek");
             HandleInput();
         }
     }

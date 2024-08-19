@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 2da4a5eedfe2fab4da39c95ff69aac2d
   - enabled: 1
+    path: Assets/Scenes/TwoTorial.unity
+    guid: 0dc7b3db7d3dcf1439210f75db562d37
+  - enabled: 1
+    path: Assets/Scenes/BabyLevel.unity
+    guid: 739238cb1e7c57840af8a1306791f2b7
+  - enabled: 1
+    path: Assets/Scenes/BabyLevel2.unity
+    guid: 17435a4f3330a674a8c96ea50afe4582
+  - enabled: 1
+    path: Assets/Scenes/BabyLevel3.unity
+    guid: 18535d6b9d7c42e42bff5b8b86095f24
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

@@ -350,6 +350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 1132970669}
   NextPanel: {fileID: 260029754}
+  currentScene:
+    m_Handle: 0
 --- !u!1 &141771969
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 260029754}
   NextPanel: {fileID: 1357998093}
+  currentScene:
+    m_Handle: 0
 --- !u!1001 &198207600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,6 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 0}
   NextPanel: {fileID: 0}
+  currentScene:
+    m_Handle: 0
 --- !u!114 &245783415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +665,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 245783414}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: StartButton
+        m_MethodName: NextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2227,6 +2233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 1104851879}
   NextPanel: {fileID: 1132970669}
+  currentScene:
+    m_Handle: 0
 --- !u!1 &1938544582
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,9 +58,9 @@ public class TimerGeneral : MonoBehaviour
     }
     IEnumerator DidWin()
     {
-        PlayerMovement.playing = false;
-        PlayerTwoMovement.playing = false;
-        BoxSpawner.playing = false;
+        //PlayerMovement.playing = false;
+       // PlayerTwoMovement.playing = false;
+       // BoxSpawner.playing = false;
 
         if (counter.count >= WinAmount)
         {

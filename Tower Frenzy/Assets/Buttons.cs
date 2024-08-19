@@ -9,6 +9,7 @@ public class Buttons : MonoBehaviour
     new public GameObject NextPanel;
     public void StartButton()
     {
+        Debug.Log("help");
         PlayerMovement.playing = true;
         PlayerTwoMovement.playing = true;
         BoxSpawner.playing = true;
@@ -40,5 +41,20 @@ public class Buttons : MonoBehaviour
     {
         CurrentPanel.gameObject.SetActive(false);
         NextPanel.gameObject.SetActive(true);
+    }
+
+    public void EndButton()
+    {
+        SceneManager.LoadScene("EndScreen");
+    }
+
+    public void Multiplayer()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void NextButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

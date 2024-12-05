@@ -10,6 +10,10 @@ TagManager:
   - Box
   - BoxSpecial
   - nyoom
+  - BoxRed
+  - BoxGreen
+  - BoxPink
+  - BoxBrown
   layers:
   - Default
   - TransparentFX

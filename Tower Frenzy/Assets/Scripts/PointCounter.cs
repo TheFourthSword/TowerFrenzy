@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,14 +8,18 @@ public class PointCounter : MonoBehaviour
 {
 
     public int points;
-   [SerializeField] public List<string> CorrectBoxes = new List<string>() { "BoxBrown", "BoxPink", "BoxGreen", "BoxRed" };
+   [SerializeField] public List<string> PossibleBoxes = new List<string>() { "BoxBrown", "BoxPink", "BoxGreen", "BoxRed" };
+   [SerializeField] public List<string> CorrectBoxes = new List<string>() { };
     public List<string> CurrentBoxes = new List<string>();
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < PossibleBoxes.Count-1; i++)
+        {
+            CorrectBoxes.Add(PossibleBoxes[Random.Range(0, PossibleBoxes.Count)]);
+        }
     }
 
     private void Update()
@@ -45,6 +49,7 @@ public class PointCounter : MonoBehaviour
         if (collision.gameObject.CompareTag("BoxBrown"))
         {
             points--;
+            CurrentBoxes.Remove("BoxBrown");
         }
         if (collision.gameObject.CompareTag("BoxSpecial"))
         {

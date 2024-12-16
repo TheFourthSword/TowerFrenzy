@@ -16,7 +16,7 @@ public class PointCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < PossibleBoxes.Count-1; i++)
+        for (int i = 0; i < PossibleBoxes.Count-2; i++)
         {
             CorrectBoxes.Add(PossibleBoxes[Random.Range(0, PossibleBoxes.Count)]);
         }

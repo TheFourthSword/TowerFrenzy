@@ -584,10 +584,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfd8e4e4393482458ff9cd7fac3080e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 30
+  MaxTime: 300
   timerIsRunning: 0
   timeText: {fileID: 420802701}
-  currentTime: 30
+  currentTime: 300
   counter: {fileID: 441881337}
   WinAmount: 15
   Winning: {fileID: 233746249}

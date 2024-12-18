@@ -31,16 +31,37 @@ public class PointCounter : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BoxBrown"))
         {
-            points++;
+            
             CurrentBoxes.Add("BoxBrown");
         }
-        if (collision.gameObject.CompareTag("BoxSpecial"))
-        {
-            points += 2;
-        }
-        if (CorrectBoxes == CurrentBoxes)
+
+        if (collision.gameObject.CompareTag("BoxPink"))
         {
 
+            CurrentBoxes.Add("BoxPink");
+        }
+
+        if (collision.gameObject.CompareTag("BoxGreen"))
+        {
+
+            CurrentBoxes.Add("BoxGreen");
+        }
+
+        if (collision.gameObject.CompareTag("BoxRed"))
+        {
+
+            CurrentBoxes.Add("BoxRed");
+        }
+
+        //if (collision.gameObject.CompareTag("BoxSpecial"))
+       // {
+       //     points += 2;
+       // }
+
+        if (CorrectBoxes == CurrentBoxes)
+        {
+            points++;
+            CurrentBoxes.RemoveAll(PossibleBoxes<string>);
         }
     }
 
@@ -51,10 +72,30 @@ public class PointCounter : MonoBehaviour
             points--;
             CurrentBoxes.Remove("BoxBrown");
         }
-        if (collision.gameObject.CompareTag("BoxSpecial"))
+
+        if (collision.gameObject.CompareTag("BoxPink"))
         {
-            points -= 2;
+            points--;
+            CurrentBoxes.Remove("BoxPink");
         }
+
+        if (collision.gameObject.CompareTag("BoxGreen"))
+        {
+            points--;
+            CurrentBoxes.Remove("BoxGreen");
+        }
+
+        if (collision.gameObject.CompareTag("BoxRed"))
+        {
+            points--;
+            CurrentBoxes.Remove("BoxRed");
+        }
+
+       // if (collision.gameObject.CompareTag("BoxSpecial"))
+       // {
+       //     points -= 2;
+      //  }
+
     }
 
 }

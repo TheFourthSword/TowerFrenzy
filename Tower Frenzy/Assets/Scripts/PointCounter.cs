@@ -61,7 +61,10 @@ public class PointCounter : MonoBehaviour
         if (CorrectBoxes == CurrentBoxes)
         {
             points++;
-            CurrentBoxes.RemoveAll(PossibleBoxes<string>);
+            CurrentBoxes.Remove("BoxRed");
+            CurrentBoxes.Remove("BoxPink");
+            CurrentBoxes.Remove("BoxGreen");
+            CurrentBoxes.Remove("BoxBrown");
         }
     }
 

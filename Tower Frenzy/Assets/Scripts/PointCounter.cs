@@ -10,12 +10,14 @@ public class PointCounter : MonoBehaviour
     public int points;
    [SerializeField] public List<string> PossibleBoxes = new List<string>() { "BoxBrown", "BoxPink", "BoxGreen", "BoxRed" };
    [SerializeField] public List<string> CorrectBoxes = new List<string>() { };
+    public List<GameObject> BoxesList;
     public List<string> CurrentBoxes = new List<string>();
     
 
     // Start is called before the first frame update
     void Start()
     {
+        BoxesList = new List<GameObject>(Resources.LoadAll<GameObject>("Boxes"));
         for (int i = 0; i < PossibleBoxes.Count-2; i++)
         {
             CorrectBoxes.Add(PossibleBoxes[Random.Range(0, PossibleBoxes.Count)]);
@@ -61,10 +63,8 @@ public class PointCounter : MonoBehaviour
         if (CorrectBoxes == CurrentBoxes)
         {
             points++;
-            CurrentBoxes.Remove("BoxRed");
-            CurrentBoxes.Remove("BoxPink");
-            CurrentBoxes.Remove("BoxGreen");
-            CurrentBoxes.Remove("BoxBrown");
+            StartCoroutine(CleanUp());
+            StopCoroutine(CleanUp());
         }
     }
 
@@ -99,6 +99,12 @@ public class PointCounter : MonoBehaviour
        //     points -= 2;
       //  }
 
+    }
+
+    IEnumerator CleanUp()
+    {
+        Destroy(gameObject);
+        CurrentBoxes.Clear();
     }
 
 }

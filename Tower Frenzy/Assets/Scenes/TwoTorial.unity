@@ -1412,8 +1412,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -294, y: 292}
-  m_SizeDelta: {x: 1194.7476, y: 172.1393}
+  m_AnchoredPosition: {x: -236.71747, y: 270.59}
+  m_SizeDelta: {x: 1309.3125, y: 214.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &485481698
 MonoBehaviour:
@@ -2293,8 +2293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.4214, y: 270.59}
-  m_SizeDelta: {x: 1787.5903, y: 214.97}
+  m_AnchoredPosition: {x: -137.2047, y: 216.8876}
+  m_SizeDelta: {x: 1508.3381, y: 322.3747}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753419838
 MonoBehaviour:
@@ -3747,8 +3747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224743f4b48a2e45825a0606663a1fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentPanel: {fileID: 160292982}
-  NextPanel: {fileID: 254274658}
+  CurrentPanel: {fileID: 254274658}
+  NextPanel: {fileID: 1775096593}
 --- !u!114 &1773453045
 MonoBehaviour:
   m_ObjectHideFlags: 0

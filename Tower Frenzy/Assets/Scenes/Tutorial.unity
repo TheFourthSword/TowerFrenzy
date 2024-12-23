@@ -350,8 +350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 1132970669}
   NextPanel: {fileID: 260029754}
-  currentScene:
-    m_Handle: 0
 --- !u!1 &141771969
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,8 +498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 260029754}
   NextPanel: {fileID: 1357998093}
-  currentScene:
-    m_Handle: 0
 --- !u!1001 &198207600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -617,8 +613,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 0}
   NextPanel: {fileID: 0}
-  currentScene:
-    m_Handle: 0
 --- !u!114 &245783415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1177,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9001846880150411964, guid: 3dfdc23c360766741877bf42468db6ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dfdc23c360766741877bf42468db6ad, type: 3}
 --- !u!1 &797020475
@@ -1334,7 +1332,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Placing boxes on the platform will get you points
+  m_Text: Place the boxes on the platform during the game!
 --- !u!222 &891686453
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2023,7 +2021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1898477966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2233,8 +2231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentPanel: {fileID: 1104851879}
   NextPanel: {fileID: 1132970669}
-  currentScene:
-    m_Handle: 0
 --- !u!1 &1938544582
 GameObject:
   m_ObjectHideFlags: 0

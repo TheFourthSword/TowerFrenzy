@@ -52,11 +52,12 @@ public class TimerGeneral : MonoBehaviour
         }
         if (timerIsRunning == false)
         {
-            StartCoroutine(DidWin());
+            Winning.gameObject.SetActive(true);
+            // StartCoroutine(DidWin());
             //SceneManager.LoadScene("LastScene");
         }
     }
-    IEnumerator DidWin()
+   /* IEnumerator DidWin()
     {
         //PlayerMovement.playing = false;
        // PlayerTwoMovement.playing = false;
@@ -72,5 +73,5 @@ public class TimerGeneral : MonoBehaviour
             Losing.gameObject.SetActive(true);
         }
         yield return null;
-    }
+    } */
 }

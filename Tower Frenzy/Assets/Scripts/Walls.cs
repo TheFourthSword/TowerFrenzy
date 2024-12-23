@@ -30,13 +30,25 @@ public class Walls : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
+        if (collision.gameObject.CompareTag("BoxBrown"))
         {
             boxes.Add(collision.gameObject);
             floats.Add(0);
         }
 
-        if (collision.gameObject.CompareTag("BoxSpecial"))
+        if (collision.gameObject.CompareTag("BoxPink"))
+        {
+            boxes.Add(collision.gameObject);
+            floats.Add(0);
+        }
+
+        if (collision.gameObject.CompareTag("BoxRed"))
+        {
+            boxes.Add(collision.gameObject);
+            floats.Add(0);
+        }
+
+        if (collision.gameObject.CompareTag("BoxGreen"))
         {
             boxes.Add(collision.gameObject);
             floats.Add(0);

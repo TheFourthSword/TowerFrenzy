@@ -1,16 +1,75 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Linq;
 
+[System.Serializable]
+public class ScoreEntry
+{
+    public string playerName;
+    public int score;
+}
+
+[System.Serializable]
+public class Scoreboard
+{
+    public List<ScoreEntry> scores = new List<ScoreEntry>();
+}
+
 public class PointCounter : MonoBehaviour
 {
+    private void AddToScoreboard(string name, int score)
+    {
+        ScoreEntry newEntry = new ScoreEntry { playerName = name, score = score };
+        scoreboard.scores.Add(newEntry);
+
+        // Sort by score descending and keep top 5
+        scoreboard.scores = scoreboard.scores.OrderByDescending(s => s.score).Take(5).ToList();
+    }
+
+    private void SaveScoreboard()
+    {
+        string json = JsonUtility.ToJson(scoreboard);
+        PlayerPrefs.SetString(ScoreboardKey, json);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadScoreboard()
+    {
+        string json = PlayerPrefs.GetString(ScoreboardKey, "");
+        if (!string.IsNullOrEmpty(json))
+        {
+            scoreboard = JsonUtility.FromJson<Scoreboard>(json);
+        }
+        else
+        {
+            scoreboard = new Scoreboard(); // Empty
+        }
+    }
+
+    private void UpdateScoreboardText()
+    {
+        if (scoreboardText == null) return;
+
+        scoreboardText.text = "Top Scores:\n";
+        foreach (var entry in scoreboard.scores)
+        {
+            scoreboardText.text += $"{entry.playerName}: {entry.score}\n";
+        }
+    }
+
+
+    [SerializeField] private string playerName = "Player1"; // You could prompt this via UI
+    [SerializeField] private Text scoreboardText; // Assign in Inspector
+    private Scoreboard scoreboard;
+    private const string ScoreboardKey = "Scoreboard";
+
 
     public int points;
-   [SerializeField] public List<string> PossibleBoxes = new List<string>() { "BoxBrown", "BoxPink", "BoxGreen", "BoxRed" };
-   [SerializeField] public List<string> CorrectBoxes = new List<string>() { };
+    [SerializeField] public List<string> PossibleBoxes = new List<string>() { "BoxBrown", "BoxPink", "BoxGreen", "BoxRed" };
+    [SerializeField] public List<string> CorrectBoxes = new List<string>() { };
     public List<GameObject> BoxesObject = new List<GameObject>();
     public List<string> CurrentBoxes = new List<string>();
     [SerializeField] private Text feedbackText;
@@ -22,13 +81,11 @@ public class PointCounter : MonoBehaviour
     {
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateHighScoreText();
+        LoadScoreboard();
+        UpdateScoreboardText();
         GenerateNewCorrectBoxes();
-        // BoxesList = new List<GameObject>(Resources.LoadAll<GameObject>("Boxes"));
-     /*   for (int i = 0; i < PossibleBoxes.Count-2; i++)
-        {
-            CorrectBoxes.Add(PossibleBoxes[Random.Range(0, PossibleBoxes.Count)]);
-        } */
     }
+
 
     private void GenerateNewCorrectBoxes()
     {
@@ -109,15 +166,19 @@ public class PointCounter : MonoBehaviour
             CurrentBoxes.Add("BoxRed");
         }
 
-        if (CorrectBoxes.OrderBy(x => x).SequenceEqual(CurrentBoxes.OrderBy(x => x)))
+        if (CurrentBoxes.Count == CorrectBoxes.Count &&
+    !CurrentBoxes.Except(CorrectBoxes).Any() &&
+    !CorrectBoxes.Except(CurrentBoxes).Any())
         {
             points++; // Increment points
             if (points > HighScore)
             {
                 HighScore = points;
-                PlayerPrefs.SetInt("HighScore", HighScore); // Save the new high score
-                UpdateHighScoreText(); // Update the displayed high score
+                PlayerPrefs.SetInt("HighScore", HighScore); // optional legacy use
+                ScoreboardManager.Instance.AddScore(HighScore);
             }
+
+
             List<GameObject> boxesToDestroy = new List<GameObject>(BoxesObject);
             foreach (GameObject box in boxesToDestroy)
             {
@@ -129,66 +190,50 @@ public class PointCounter : MonoBehaviour
 
             GenerateNewCorrectBoxes();
         }
+        if (points > HighScore)
+        {
+            HighScore = points;
+            PlayerPrefs.SetInt("HighScore", HighScore); // Old method (keep if needed)
 
-        //if (collision.gameObject.CompareTag("BoxSpecial"))
-        // {
-        //     points += 2;
-        // }
+            // Add to scoreboard
+            AddToScoreboard(playerName, HighScore);
+            SaveScoreboard();
+            UpdateScoreboardText();
+            UpdateHighScoreText();
+        }
 
-        /* if (CorrectBoxes == CurrentBoxes)
-         {
-             points++;
-             foreach (GameObject box in BoxesObject)
-             {
-                 Destroy(box);
-             }
-             //StartCoroutine(CleanUp());
-             //StopCoroutine(CleanUp());
-         } */
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("BoxBrown"))
         {
-           // points--;
             CurrentBoxes.Remove("BoxBrown");
             BoxesObject.Remove(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("BoxPink"))
         {
-            //points--;
             CurrentBoxes.Remove("BoxPink");
             BoxesObject.Remove(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("BoxGreen"))
         {
-            //points--;
             CurrentBoxes.Remove("BoxGreen");
             BoxesObject.Remove(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("BoxRed"))
         {
-            //points--;
             CurrentBoxes.Remove("BoxRed");
             BoxesObject.Remove(collision.gameObject);
         }
 
-       // if (collision.gameObject.CompareTag("BoxSpecial"))
-       // {
-       //     points -= 2;
-      //  }
 
     }
 
-  //  IEnumerator CleanUp()
- //   {
- //       yield return new WaitForSeconds(1);
-  //      Destroy(gameObject);
-  //      CurrentBoxes.Clear();
-  //  }
 
 }
+

@@ -5,25 +5,23 @@ using UnityEngine;
 public class Walls : MonoBehaviour
 {
 
-    //deze code krijgt een specifiek bedankje aan Emily van der Schaaf, die samen met mij drie uur naar het probleem heeft gestaard in hoop tot oplossing
+    
     public List<GameObject> boxes = new List<GameObject>();
     public List<float> floats = new List<float>();
 
 
     private void Update()
     {
-        for (int i = 0; i < boxes.Count; i++)
+        for (int i = boxes.Count - 1; i >= 0; i--) // Reverse loop
         {
-            floats[i] += 1 * Time.deltaTime;
+            floats[i] += Time.deltaTime;
 
-            if (floats[i] >= 5f)
+            if (floats[i] >= 2f)
             {
-                Debug.Log("Please");
-                int index = boxes.IndexOf(boxes[i]);
+                Debug.Log("Destroying box");
                 Destroy(boxes[i]);
-                boxes.RemoveAt(index);
-                floats.RemoveAt(index);
-
+                boxes.RemoveAt(i);
+                floats.RemoveAt(i);
             }
         }
     }

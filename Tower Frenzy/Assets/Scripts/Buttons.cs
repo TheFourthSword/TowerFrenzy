@@ -7,6 +7,7 @@ public class Buttons : MonoBehaviour
 {
     new public GameObject CurrentPanel;
     new public GameObject NextPanel;
+    new public GameObject BoxRed;
     public void StartButton()
     {
         Debug.Log("help");
@@ -56,5 +57,10 @@ public class Buttons : MonoBehaviour
     public void NextButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RedBox ()
+    {
+        Instantiate(BoxRed);
     }
 }

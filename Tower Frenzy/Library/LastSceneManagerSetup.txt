@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/MechanicShift3.unity
+- path: Assets/Scenes/PogingZoveel.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

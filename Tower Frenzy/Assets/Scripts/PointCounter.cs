@@ -5,65 +5,37 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Linq;
 
-[System.Serializable]
-public class ScoreEntry
-{
-    public string playerName;
-    public int score;
-}
 
-[System.Serializable]
-public class Scoreboard
-{
-    public List<ScoreEntry> scores = new List<ScoreEntry>();
-}
+
+
+
 
 public class PointCounter : MonoBehaviour
 {
-    private void AddToScoreboard(string name, int score)
-    {
-        ScoreEntry newEntry = new ScoreEntry { playerName = name, score = score };
-        scoreboard.scores.Add(newEntry);
 
-        // Sort by score descending and keep top 5
-        scoreboard.scores = scoreboard.scores.OrderByDescending(s => s.score).Take(5).ToList();
-    }
-
-    private void SaveScoreboard()
+    private void SubmitScore()
     {
-        string json = JsonUtility.ToJson(scoreboard);
-        PlayerPrefs.SetString(ScoreboardKey, json);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadScoreboard()
-    {
-        string json = PlayerPrefs.GetString(ScoreboardKey, "");
-        if (!string.IsNullOrEmpty(json))
-        {
-            scoreboard = JsonUtility.FromJson<Scoreboard>(json);
-        }
-        else
-        {
-            scoreboard = new Scoreboard(); // Empty
-        }
+        ScoreboardManager.Instance.AddScore(playerName, HighScore);
+        UpdateScoreboardText();
     }
 
     private void UpdateScoreboardText()
     {
-        if (scoreboardText == null) return;
+       // if (scoreboardText == null) return;
 
         scoreboardText.text = "Top Scores:\n";
-        foreach (var entry in scoreboard.scores)
+        var entries = ScoreboardManager.Instance.GetScores();
+        foreach (var entry in entries)
         {
             scoreboardText.text += $"{entry.playerName}: {entry.score}\n";
         }
     }
 
 
+
+
     [SerializeField] private string playerName = "Player1"; // You could prompt this via UI
     [SerializeField] private Text scoreboardText; // Assign in Inspector
-    private Scoreboard scoreboard;
     private const string ScoreboardKey = "Scoreboard";
 
 
@@ -81,11 +53,18 @@ public class PointCounter : MonoBehaviour
     {
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateHighScoreText();
-        LoadScoreboard();
+        //LoadScoreboard();
         UpdateScoreboardText();
         GenerateNewCorrectBoxes();
+
+        StartCoroutine(DelayedInit());
     }
 
+    private IEnumerator DelayedInit()
+    {
+        yield return new WaitUntil(() => ScoreboardManager.Instance != null);
+        UpdateScoreboardText(); // Safe call
+    }
 
     private void GenerateNewCorrectBoxes()
     {
@@ -167,15 +146,14 @@ public class PointCounter : MonoBehaviour
         }
 
         if (CurrentBoxes.Count == CorrectBoxes.Count &&
-    !CurrentBoxes.Except(CorrectBoxes).Any() &&
-    !CorrectBoxes.Except(CurrentBoxes).Any())
+    CurrentBoxes.OrderBy(x => x).SequenceEqual(CorrectBoxes.OrderBy(x => x)))
         {
             points++; // Increment points
             if (points > HighScore)
             {
                 HighScore = points;
                 PlayerPrefs.SetInt("HighScore", HighScore); // optional legacy use
-                ScoreboardManager.Instance.AddScore(HighScore);
+              //  ScoreboardManager.Instance.AddScore(HighScore);
             }
 
 
@@ -193,14 +171,12 @@ public class PointCounter : MonoBehaviour
         if (points > HighScore)
         {
             HighScore = points;
-            PlayerPrefs.SetInt("HighScore", HighScore); // Old method (keep if needed)
-
-            // Add to scoreboard
-            AddToScoreboard(playerName, HighScore);
-            SaveScoreboard();
-            UpdateScoreboardText();
+            PlayerPrefs.SetInt("HighScore", HighScore);
+            SubmitScore();
             UpdateHighScoreText();
         }
+
+
 
 
     }

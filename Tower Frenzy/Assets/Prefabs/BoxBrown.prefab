@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5489097984525441648}
   - component: {fileID: -6249984085895223062}
   - component: {fileID: 8006342448790020033}
+  - component: {fileID: -6315770892027809599}
   m_Layer: 6
   m_Name: BoxBrown
   m_TagString: BoxBrown
@@ -98,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1845293, y: 0.1502747}
+  m_Offset: {x: -0.1845293, y: -0.031099707}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.433525, y: 1.223486}
+  m_Size: {x: 3.433525, y: 1.5862348}
   m_EdgeRadius: 0
 --- !u!50 &-6249984085895223062
 Rigidbody2D:
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ec74e5ccb39b7489979b31535083d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6315770892027809599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7520386106172457846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042d1ec511e4905408169e96f157a8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestructionTime: 2

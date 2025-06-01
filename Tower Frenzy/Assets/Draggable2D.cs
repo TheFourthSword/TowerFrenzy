@@ -18,9 +18,10 @@ public class Draggable2D : MonoBehaviour
         if (isDragging)
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, transform.position.z) + offset;
+            transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0) + offset;
         }
     }
+
 
     void OnMouseUp()
     {

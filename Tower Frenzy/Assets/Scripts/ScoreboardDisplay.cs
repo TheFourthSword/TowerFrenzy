@@ -8,14 +8,15 @@ public class ScoreboardDisplay : MonoBehaviour
 
     void Start()
     {
-        List<int> scores = ScoreboardManager.Instance.GetScores();
+        List<ScoreEntry> scores = ScoreboardManager.Instance.GetScores();
         scoreboardText.text = "Top Scores:\n";
 
-        foreach (int score in scores)
+        foreach (ScoreEntry entry in scores)
         {
-            scoreboardText.text += score.ToString() + "\n";
+            scoreboardText.text += $"{entry.playerName}: {entry.score}\n";
         }
     }
 }
+
 
 

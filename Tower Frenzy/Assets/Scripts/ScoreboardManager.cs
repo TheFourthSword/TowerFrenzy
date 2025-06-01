@@ -3,9 +3,16 @@ using UnityEngine;
 using System.Linq;
 
 [System.Serializable]
+public class ScoreEntry
+{
+    public string playerName;
+    public int score;
+}
+
+[System.Serializable]
 public class ScoreboardData
 {
-    public List<int> scores = new List<int>();
+    public List<ScoreEntry> scores = new List<ScoreEntry>();
 }
 
 public class ScoreboardManager : MonoBehaviour
@@ -31,20 +38,26 @@ public class ScoreboardManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int score)
+    public void AddScore(string playerName, int score)
     {
-        scoreboard.scores.Add(score);
+        if (scoreboard == null)
+        {
+            scoreboard = new ScoreboardData(); // Prevent null reference
+        }
 
-        // Keep only top scores
+        ScoreEntry newEntry = new ScoreEntry { playerName = playerName, score = score };
+        scoreboard.scores.Add(newEntry);
+
         scoreboard.scores = scoreboard.scores
-            .OrderByDescending(s => s)
+            .OrderByDescending(s => s.score)
             .Take(MaxEntries)
             .ToList();
 
         SaveScoreboard();
     }
 
-    public List<int> GetScores()
+
+    public List<ScoreEntry> GetScores()
     {
         return scoreboard.scores;
     }
@@ -75,5 +88,8 @@ public class ScoreboardManager : MonoBehaviour
         scoreboard = new ScoreboardData();
     }
 }
+
+
+
 
 
